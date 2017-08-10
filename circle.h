@@ -14,8 +14,8 @@ class Circle : public QObject
 public:
     explicit Circle(QObject *parent = nullptr);
     int getX();
-
     int getY();
+
 
 signals:
     void xPosition();

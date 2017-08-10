@@ -4,15 +4,15 @@ import circle 1.0
 
 Window {
     visible: true
-    width: 600
-    height: 600
+    width: 700
+    height: 540
     title: qsTr("SuperBalls")
 
 
-    ListView {
-        id: listView
-        width: 600
-        height: 600
+    GridView {
+        id: gridView
+        width: 640
+        height: 480
         delegate:
 
             Rectangle {
@@ -20,7 +20,7 @@ Window {
             width: 60
             height: 60
             color: "black"
-            radius: 40
+            radius: 30
             x: 0
             y: 0
 
@@ -34,14 +34,14 @@ Window {
 
             Behavior on x {
                 SpringAnimation{
-                    spring: 2
+                    spring: 1
                     damping: 0.2
                 }
             }
 
             Behavior on y {
                 SpringAnimation{
-                    spring: 2
+                    spring: 1
                     damping: 0.2
                 }
             }
@@ -63,7 +63,7 @@ Window {
             }
 
             Timer {
-                interval: 1; running: true; repeat: true;
+                interval: 50; running: true; repeat: true;
                 onTriggered: {
                     x = objCircle.slotPositionX()
                     y = objCircle.slotPositionY()
@@ -75,6 +75,12 @@ Window {
             id: listModel
 
 
+            ListElement{
+
+            }
+            ListElement{
+
+            }
             ListElement{
 
             }

@@ -4,8 +4,10 @@
 
 
 Circle::Circle(QObject *parent) : QObject(parent)
-  ,x(rand() % 600)
-  ,y(rand() % 600)
+  ,x(0)
+  ,y(0)
+  ,dx(1 + rand() % 4)
+  ,dy(1 + rand() % 3)
 {
 
 }
@@ -13,36 +15,27 @@ Circle::Circle(QObject *parent) : QObject(parent)
 int Circle::getY()
 {
 
-    dy = 1;
     y += dy;
-    return y;
-    if(y > 600)
-    {
-        dy = -1;
-    }
-    else if(y < 0)
-    {
-        dy = 1;
-    }
 
-    qDebug() << "coordY: " << y << "\n";
+    if((y + dy) > 480 || (y + dy) < 0)
+    {
+        dy = -dy;
+    }
+    return y;
+
 }
 
 int Circle::getX()
 {
 
-    dx = 1;
     x += dx;
+
+    if((x + dx) > 640 || (x + dx) < 0)
+    {
+        dx = -dx;
+    }
+
     return x;
-    if(x > 600)
-    {
-        dx = -1;
-    }
-    else if(x < 0)
-    {
-        dx = 1;
-    }
-    qDebug() << "coordX: " << x << "\n";
 }
 
 Circle::slotPositionX()
